@@ -12,14 +12,14 @@ import {
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { catchError } from 'rxjs';
 import { PaginationDto } from 'src/common/dtos';
-import { ORDERS_SERVICE } from 'src/config';
+import { NATS_SERVICE } from 'src/config';
 import { CreateOrderDto, OrderPaginationDto } from './dtos';
 import { StatusDto } from './dtos/status.dto';
 
 @Controller('orders')
 export class OrdersController {
   constructor(
-    @Inject(ORDERS_SERVICE)
+    @Inject(NATS_SERVICE)
     private readonly orderClient: ClientProxy,
   ) {}
 
